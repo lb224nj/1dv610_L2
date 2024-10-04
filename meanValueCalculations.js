@@ -15,6 +15,7 @@ class MeanValueCalculations {
       throw new Error('The input must contain one number at a minimum')
     }
   }
+
   /**
    * The private method #sumNumbersInArray sums all numbers from an array and is used in method meanValue to   calculate the mean value from said array.
    */
@@ -65,6 +66,7 @@ class MeanValueCalculations {
     }
     return totalSumOfReciprocals
   }
+
   /**
    * Calculates the harmonic mean value from an array of numbers. Uses the private method checkArraysInput for validation and the private method #sumReciprocalsInArray to sum all reciprocals in the array.
    */
