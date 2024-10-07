@@ -1,3 +1,7 @@
+/**
+ * Helper function that is meant for internal validation ONLY. It is to be viewed as a "private" helper function.
+ * The function checks whether the input is an array and that the specific array contains ata minimum one number.
+ */
 export function checkArraysInput (numbers) {
   if (!Array.isArray(numbers)) {
     throw new Error('Input should be an array')

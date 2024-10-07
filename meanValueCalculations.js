@@ -17,7 +17,7 @@ export class MeanValueCalculations {
   }
 
   /**
-   * Calculates the man value from an array of numbers. Uses the private method #checkArraysInput for validation and the private method #sumNumbersInArray to sum all numbers in the array.
+   * Calculates the man value from an array of numbers. Uses helper function checkArraysInput for validation and the private method #sumNumbersInArray to sum all numbers in the array.
    */
   calculateMeanValue (numbers) {
     checkArraysInput(numbers)
@@ -37,7 +37,7 @@ export class MeanValueCalculations {
   }
 
   /**
-   * Calculates the geometric mean value from an array of numbers. Uses the private method #checkArraysInput for validation and the private method #multiplyNumbersInArray to multiply all numbers in the array.
+   * Calculates the geometric mean value from an array of numbers. Uses helper function checkArraysInput for validation and the private method #multiplyNumbersInArray to multiply all numbers in the array.
    */
   calculateGeometricMeanValue (numbers) {
     checkArraysInput(numbers)
@@ -57,7 +57,7 @@ export class MeanValueCalculations {
   }
 
   /**
-   * Calculates the harmonic mean value from an array of numbers. Uses the private method checkArraysInput for validation and the private method #sumReciprocalsInArray to sum all reciprocals in the array.
+   * Calculates the harmonic mean value from an array of numbers. Uses the helper function checkArraysInput for validation and the private method #sumReciprocalsInArray to sum all reciprocals in the array.
    */
   calculateHarmonicMeanValue (numbers) {
     checkArraysInput(numbers)
