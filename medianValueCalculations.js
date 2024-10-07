@@ -3,7 +3,7 @@ import { checkArraysInput } from './helperFunctions.js'
 /**
  * Class used for calculation of the medain value from an array of numbers.
  */
-class MedianValueCalculations {
+export class MedianValueCalculations {
   /**
    * Private method used for sorting an array from smallest number to largest. Used in calculateMedianValue method.
    */
@@ -18,7 +18,7 @@ class MedianValueCalculations {
    */
   #extractMedianValueFromSortedArray (sortedNumbersFromArray) {
     const middleIndexInArray = Math.floor(sortedNumbersFromArray.length / 2)
-    if (sortedNumbersFromArray.length % 2!==0) {
+    if (sortedNumbersFromArray.length % 2 !== 0) {
       return sortedNumbersFromArray[middleIndexInArray]
     } else {
       return (sortedNumbersFromArray[middleIndexInArray - 1] + sortedNumbersFromArray[middleIndexInArray]) / 2
@@ -32,5 +32,6 @@ class MedianValueCalculations {
   calculateMedianValue (numbers) {
     checkArraysInput(numbers)
     const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
+    return this.#extractMedianValueFromSortedArray(sortedNumbersFromArray)
   }
 }
