@@ -3,7 +3,7 @@
  *
  * This class contains private and public methods related to making mean value calculations.
  */
-class MeanValueCalculations {
+export class MeanValueCalculations {
   /**
    * Private method that makes sure the recieved input is an array ant that it contains at least one number.
    */
