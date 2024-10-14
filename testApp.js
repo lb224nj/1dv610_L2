@@ -1,4 +1,4 @@
-import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations, ModeValueCalculations } from './mathOperations.js'
+import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations, ModeValueCalculations, RangeValueCalculations } from './mathOperations.js'
 
 // Instance of MeanValueCalculations class, used for manual testing of mean value calculations.
 const meanValueCalculator = new MeanValueCalculations()
@@ -75,3 +75,18 @@ console.log(`Mode value of [${testNumbersForModeValue}] is:`, modeValue)
 
 const secondModeValue = modeValueCalculator.calculateModeValue(secondTestNumbersForModeValue)
 console.log(`Mode value of [${secondTestNumbersForModeValue}] is:`, secondModeValue)
+
+// Instance of RangeValueCalculations class, used for manual testing of range value calculations.
+const rangeValueCalculator = new RangeValueCalculations()
+
+// Test array for manual testing of range value calculations.
+const testNumbersForRangeValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// Test array for manual testing of range value calculations including negative numbers.
+const secondTestNumbersForRangeValue = [-10, -8, -4, -2, 0, 4, 8, 10.5]
+
+// Manual testing of range value calculations.
+const rangeValue = rangeValueCalculator.calculateRangeValue(testNumbersForRangeValue)
+console.log(`Range value of [${testNumbersForRangeValue}] is:`, rangeValue)
+
+const secondRangeValue = rangeValueCalculator.calculateRangeValue(secondTestNumbersForRangeValue)
+console.log(`Range value of [${secondTestNumbersForRangeValue}] is:`, secondRangeValue)
