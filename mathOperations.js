@@ -5,6 +5,7 @@
 import { MeanValueCalculations } from './meanValueCalculations.js'
 import { MedianValueCalculations } from './medianValueCalculations.js'
 import { VarianceValueCalculations } from './varianceValueCalculations.js'
+import { ModeValueCalculations } from './modeValueCalculations.js'
 
 // Exporting the classes for users to use.
-export { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations }
+export { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations, ModeValueCalculations }

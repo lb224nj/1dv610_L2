@@ -1,4 +1,4 @@
-import { checkArraysInput } from './helperFunctions'
+import { checkArraysInput } from './helperFunctions.js'
 
 /**
  * Class used for calculation of the mode value from an array of numbers.
@@ -39,5 +39,22 @@ export class ModeValueCalculations {
       }
     }
     return modeValue
+  }
+
+  /**
+   * Method that calculates the mode value from an array of numbers.
+   */
+  calculateModeValue (numbers) {
+    checkArraysInput(numbers)
+
+    const frequencyOfNumbers = this.#calculateFrequencyOfNumbers(numbers)
+
+    const modeValue = this.#extractModeValueFromFrequency(frequencyOfNumbers)
+
+    if (modeValue.length === 1) {
+      return modeValue[0]
+    } else {
+      return modeValue
+    }
   }
 }

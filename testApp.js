@@ -1,4 +1,4 @@
-import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations } from './mathOperations.js'
+import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations, ModeValueCalculations } from './mathOperations.js'
 
 // Instance of MeanValueCalculations class, used for manual testing of mean value calculations.
 const meanValueCalculator = new MeanValueCalculations()
@@ -52,3 +52,18 @@ console.log(`Variance value of [${testNumbersForMeanValue}] is:`, varianceValue)
 
 const secondVarianceValue = varianceValueCalculator.calculateVarianceValue(secondTestNumbersForMeanValue)
 console.log(`Variance value of [${secondTestNumbersForMeanValue}] is:`, secondVarianceValue)
+
+// Instance of ModeValueCalculations class, used for manual testing of mode value calculations.
+const modeValueCalculator = new ModeValueCalculations()
+
+// Test array for manual testing of mode value calculations.
+const testNumbersForModeValue = [4, 1, 4, 4, 2, 3, 2, 4, 3]
+// Test array for manual testing of mode value calculations with multiple modes.
+const secondTestNumbersForModeValue = [4, 4, 0, 2, 2, 3, 1, 6, 8, 1]
+
+// Manual testing of mode value calculations.
+const modeValue = modeValueCalculator.calculateModeValue(testNumbersForModeValue)
+console.log(`Mode value of [${testNumbersForModeValue}] is:`, modeValue)
+
+const secondModeValue = modeValueCalculator.calculateModeValue(secondTestNumbersForModeValue)
+console.log(`Mode value of [${secondTestNumbersForModeValue}] is:`, secondModeValue)
