@@ -1,7 +1,7 @@
 import { checkArraysInput } from './helperFunctions.js'
 
 /**
- * Class used for calculation of the medain value from an array of numbers.
+ * Class used for calculation of the median value from an array of numbers.
  */
 export class MedianValueCalculations {
   /**

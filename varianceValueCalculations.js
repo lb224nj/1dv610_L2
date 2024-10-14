@@ -1,6 +1,9 @@
 import { MeanValueCalculations } from './meanValueCalculations.js'
 import { checkArraysInput } from './helperFunctions.js'
 
+/**
+ * Class used for calculation of the variance value from an array of numbers.
+ */
 export class VarianceValueCalculations {
 /**
  * Constructs an instance of the VarianceValueCalculations class where MeanValueCalculations class is reused via
