@@ -37,4 +37,12 @@ export class VarianceValueCalculations {
     const meanValue = this.meanValueCalculator.calculateMeanValue(numbers)
     return this.#calculateTotalSquaredDifference(numbers, meanValue)
   }
+
+  /**
+   * Public method that calculates the standard deviation value from an array of numbers. Uses the
+   * calculateVarianceValue method and returns the square root of the variance value.
+   */
+  calculateStandardDeviationValue (numbers) {
+    return Math.sqrt(this.calculateVarianceValue(numbers))
+  }
 }

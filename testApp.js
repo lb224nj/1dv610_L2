@@ -47,11 +47,19 @@ console.log(`Median value of [${secondTestNumbersForMedianValue}] is:`, secondMe
 // Instance of VarianceValueCalculations class, used for manual testing of variance value calculations.
 const varianceValueCalculator = new VarianceValueCalculations()
 
+// Manual testing of variance value calculations.
 const varianceValue = varianceValueCalculator.calculateVarianceValue(testNumbersForMeanValue)
 console.log(`Variance value of [${testNumbersForMeanValue}] is:`, varianceValue)
 
 const secondVarianceValue = varianceValueCalculator.calculateVarianceValue(secondTestNumbersForMeanValue)
 console.log(`Variance value of [${secondTestNumbersForMeanValue}] is:`, secondVarianceValue)
+
+// Manual testing of standard deviation value calculations.
+const standardDeviationValue = varianceValueCalculator.calculateStandardDeviationValue(testNumbersForMeanValue)
+console.log(`Standard deviation value of [${testNumbersForMeanValue}] is:`, standardDeviationValue)
+
+const secondStandardDeviationValue = varianceValueCalculator.calculateStandardDeviationValue(secondTestNumbersForMeanValue)
+console.log(`Standard deviation value of [${secondTestNumbersForMeanValue}] is:`, secondStandardDeviationValue)
 
 // Instance of ModeValueCalculations class, used for manual testing of mode value calculations.
 const modeValueCalculator = new ModeValueCalculations()
