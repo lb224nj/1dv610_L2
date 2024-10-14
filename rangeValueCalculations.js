@@ -1,4 +1,5 @@
 import { checkArraysInput } from './helperFunctions.js'
+import { MedianValueCalculations } from './medianValueCalculations.js'
 
 /**
  * Class used for calculation of the range value from an array of numbers.
@@ -38,5 +39,14 @@ export class RangeValueCalculations {
     const lowestValue = this.#findLowestValue(numbers)
     const highestValue = this.#findHighestValue(numbers)
     return highestValue - lowestValue
+  }
+  /**
+   * Public method used for calculating the interquartile range value from an array of numbers.
+   * Interquartile range is the difference between the third quartile and the first quartile.
+   * Uses the helper function checkArraysInput for validation and the calculateMedianValue method from the
+   * MedianValueCalculations class.
+   */
+  calculateInterquartileRangeValue (numbers) {
+    checkArraysInput(numbers)
   }
 }

@@ -29,11 +29,12 @@ export class VarianceValueCalculations {
   /**
    * Public method that calculates the variance value from an array of numbers. Uses the
    * helper function checkArraysInput for validation, the private method #calculateTotalSquaredDifference to
-   * calculate the total squared difference, and the meanValue method from the MeanValueCalculations class to get the
-   * mean value of the array.
+   * calculate the total squared difference, and the calculateMeanValue method from the MeanValueCalculations class
+   * to get the mean value of the array.
    */
   calculateVarianceValue (numbers) {
     checkArraysInput(numbers)
+    // Uses calculateMeanValue method from MeanValueCalculations class
     const meanValue = this.meanValueCalculator.calculateMeanValue(numbers)
     return this.#calculateTotalSquaredDifference(numbers, meanValue)
   }
