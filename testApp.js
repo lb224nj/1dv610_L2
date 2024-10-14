@@ -1,4 +1,4 @@
-import { MeanValueCalculations, MedianValueCalculations } from './mathOperations.js'
+import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculations } from './mathOperations.js'
 
 // Instance of MeanValueCalculations class, used for manual testing of mean value calculations.
 const meanValueCalculator = new MeanValueCalculations()
@@ -43,3 +43,12 @@ console.log(`Median value of [${testNumbersForMedianValue}] is:`, medianValue)
 
 const secondMedianValue = medianValueCalculator.calculateMedianValue(secondTestNumbersForMedianValue)
 console.log(`Median value of [${secondTestNumbersForMedianValue}] is:`, secondMedianValue)
+
+// Instance of VarianceValueCalculations class, used for manual testing of variance value calculations.
+const varianceValueCalculator = new VarianceValueCalculations()
+
+const varianceValue = varianceValueCalculator.calculateVarianceValue(testNumbersForMeanValue)
+console.log(`Variance value of [${testNumbersForMeanValue}] is:`, varianceValue)
+
+const secondVarianceValue = varianceValueCalculator.calculateVarianceValue(secondTestNumbersForMeanValue)
+console.log(`Variance value of [${secondTestNumbersForMeanValue}] is:`, secondVarianceValue)
