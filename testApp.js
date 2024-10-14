@@ -1,10 +1,10 @@
 import { MeanValueCalculations, MedianValueCalculations } from './mathOperations.js'
 
+// Instance of MeanValueCalculations class, used for manual testing of mean value calculations.
 const meanValueCalculator = new MeanValueCalculations()
-const medianValueCalculator = new MedianValueCalculations()
 
 // Test array for manual testing of median value calculations.
-const testNumbersForMeanValue = [4, 8, 12, 16, 20, 24]
+const testNumbersForMeanValue = [8, 4, 16, 12, 20, 24]
 // Test array for manual testing of mean value calculations with a value of 0 included.
 const secondTestNumbersForMeanValue = [4, 8, 12, 16, 20, 24, 0]
 
@@ -28,3 +28,18 @@ console.log(`Harmonic mean value of [${testNumbersForMeanValue}] is:`, harmonicM
 
 const secondHarmonicMeanValue = meanValueCalculator.calculateHarmonicMeanValue(secondTestNumbersForMeanValue)
 console.log(`Harmonic mean value of [${secondTestNumbersForMeanValue}] is:`, secondHarmonicMeanValue)
+
+// Instance of MedianValueCalculations class, used for manual testing of median value calculations.
+const medianValueCalculator = new MedianValueCalculations()
+
+// Test array for manual testing of median value calculations with an uneven number of integers.
+const testNumbersForMedianValue = [3, 1, 2, 4, 5]
+// Test array for manual testing of median value calculations with an even number of integers.
+const secondTestNumbersForMedianValue = [3, 1, 2, 4, 5, 0]
+
+// Manual testing of median value calculations.
+const medianValue = medianValueCalculator.calculateMedianValue(testNumbersForMedianValue)
+console.log(`Median value of [${testNumbersForMedianValue}] is:`, medianValue)
+
+const secondMedianValue = medianValueCalculator.calculateMedianValue(secondTestNumbersForMedianValue)
+console.log(`Median value of [${secondTestNumbersForMedianValue}] is:`, secondMedianValue)
