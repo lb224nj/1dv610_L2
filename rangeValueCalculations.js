@@ -9,7 +9,7 @@ export class RangeValueCalculations {
    * Private method used to find the lowest value in an array. Used in calculateRangeValue method.
    */
   #findLowestValue (numbers) {
-    let lowestValue =numbers[0]
+    let lowestValue = numbers[0]
     for (let i = 1; i < numbers.length; i++) {
       if (numbers[i] < lowestValue) {
         lowestValue = numbers[i]
@@ -40,6 +40,29 @@ export class RangeValueCalculations {
     const highestValue = this.#findHighestValue(numbers)
     return highestValue - lowestValue
   }
+
+  /**
+   * Private method for sorting the array from smallest to largest. Used in calculateInterquartileRangeValue method.
+   */
+  #sortNumbersInArray (numbers) {
+    numbers.sort((a, b) => a - b)
+  }
+
+  /**
+   * Private method for splitting the array into two halves. Used in calculateInterquartileRangeValue method.
+   */
+  #splitArrayInHalf (numbers) {
+    const middleIndex = Math.floor(numbers.length / 2)
+    const lowerHalf = numbers.slice(0, middleIndex)
+    let higherHalf
+    if (numbers.length % 2 === 0) {
+      higherHalf = numbers.slice(middleIndex)
+    } else {
+      higherHalf = numbers.slice(middleIndex + 1)
+      return [lowerHalf, higherHalf]
+    }
+  }
+
   /**
    * Public method used for calculating the interquartile range value from an array of numbers.
    * Interquartile range is the difference between the third quartile and the first quartile.
@@ -48,5 +71,13 @@ export class RangeValueCalculations {
    */
   calculateInterquartileRangeValue (numbers) {
     checkArraysInput(numbers)
+    this.#sortNumbersInArray(numbers)
+
+    const [lowerHalf, higherHalf] = this.#splitArrayInHalf(numbers)
+
+    const firstQuartile = new MedianValueCalculations().calculateMedianValue(lowerHalf)
+    const thirdQuartile = new MedianValueCalculations().calculateMedianValue(higherHalf)
+
+    return thirdQuartile - firstQuartile
   }
 }
