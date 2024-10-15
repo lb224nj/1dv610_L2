@@ -64,4 +64,47 @@ export class MeanValueCalculations {
     const sumOfReciprocals = this.#sumReciprocalsInArray(numbers)
     return numbers.length / sumOfReciprocals
   }
+
+  /**
+   * Private method for sorting the array from smallest to largest. Used in calculateTrimmedMeanValue method.
+   */
+  #sortNumbersInArray (numbers) {
+    return numbers.slice().sort((a, b) => a - b)
+  }
+
+  /**
+   * Private method that calculates how many numbers that should be remvoved from the array based on given percentage.
+   * Used in calculateTrimmedMeanValue method.
+   */
+  #calculateAmountOfNumbersToTrim (numbers, trimPercentage) {
+    const totalAmountOfNumbers = numbers.length
+    const amountOfNumbersToTrim = Math.floor((totalAmountOfNumbers * trimPercentage) / 100)
+    return amountOfNumbersToTrim
+  }
+
+  /**
+   * Private method used to trim the lowest and highest numbers from the array based on number of elements to trim.
+   * Used in calculateTrimmedMeanValue method.
+   */
+  #trimNumbersInArray (numbers, amountOfNumbersToTrim) {
+    const trimmedArray = []
+    for (let i = amountOfNumbersToTrim; i < numbers.length - amountOfNumbersToTrim; i++) {
+      trimmedArray.push(numbers[i])
+    }
+    return trimmedArray
+  }
+
+  /**
+   * Public method to calculate the trimmed mean value form an array.
+   * Trims a specified percentage from the smallest and largest values before calculating the mean.
+   */
+  calculateTrimmedMeanValue (numbers, trimPercentage) {
+    checkArraysInput(numbers)
+    const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
+
+    const amountOfNumbersToTrim = this.#calculateAmountOfNumbersToTrim(sortedNumbersFromArray, trimPercentage)
+    const trimmedArray = this.#trimNumbersInArray(sortedNumbersFromArray, amountOfNumbersToTrim)
+    const totalSum = this.#sumNumbersInArray(trimmedArray)
+    return totalSum / trimmedArray.length
+  }
 }

@@ -45,7 +45,7 @@ export class RangeValueCalculations {
    * Private method for sorting the array from smallest to largest. Used in calculateInterquartileRangeValue method.
    */
   #sortNumbersInArray (numbers) {
-    numbers.sort((a, b) => a - b)
+    return numbers.slice().sort((a, b) => a - b)
   }
 
   /**
@@ -71,9 +71,9 @@ export class RangeValueCalculations {
    */
   calculateInterquartileRangeValue (numbers) {
     checkArraysInput(numbers)
-    this.#sortNumbersInArray(numbers)
+    const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
 
-    const [lowerHalf, higherHalf] = this.#splitArrayInHalf(numbers)
+    const [lowerHalf, higherHalf] = this.#splitArrayInHalf(sortedNumbersFromArray)
 
     const firstQuartile = new MedianValueCalculations().calculateMedianValue(lowerHalf)
     const thirdQuartile = new MedianValueCalculations().calculateMedianValue(higherHalf)
