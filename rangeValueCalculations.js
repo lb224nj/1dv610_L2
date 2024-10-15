@@ -59,8 +59,8 @@ export class RangeValueCalculations {
       higherHalf = numbers.slice(middleIndex)
     } else {
       higherHalf = numbers.slice(middleIndex + 1)
-      return [lowerHalf, higherHalf]
     }
+    return [lowerHalf, higherHalf]
   }
 
   /**

@@ -80,7 +80,7 @@ console.log(`Mode value of [${secondTestNumbersForModeValue}] is:`, secondModeVa
 const rangeValueCalculator = new RangeValueCalculations()
 
 // Test array for manual testing of range value calculations.
-const testNumbersForRangeValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const testNumbersForRangeValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15]
 // Test array for manual testing of range value calculations including negative numbers.
 const secondTestNumbersForRangeValue = [-10, -8, -4, -2, 0, 4, 8, 10.5]
 
@@ -90,3 +90,10 @@ console.log(`Range value of [${testNumbersForRangeValue}] is:`, rangeValue)
 
 const secondRangeValue = rangeValueCalculator.calculateRangeValue(secondTestNumbersForRangeValue)
 console.log(`Range value of [${secondTestNumbersForRangeValue}] is:`, secondRangeValue)
+
+// Manual testing of interquartile range value calculations.
+const interquartileRangeValue = rangeValueCalculator.calculateInterquartileRangeValue(testNumbersForRangeValue)
+console.log(`Interquartile range value of [${testNumbersForRangeValue}] is:`, interquartileRangeValue)
+
+const secondInterquartileRangeValue = rangeValueCalculator.calculateInterquartileRangeValue(secondTestNumbersForRangeValue)
+console.log(`Interquartile range value of [${secondTestNumbersForRangeValue}] is:`, secondInterquartileRangeValue)
