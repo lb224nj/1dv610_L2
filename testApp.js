@@ -3,7 +3,7 @@ import { MeanValueCalculations, MedianValueCalculations, VarianceValueCalculatio
 // Instance of MeanValueCalculations class, used for manual testing of mean value calculations.
 const meanValueCalculator = new MeanValueCalculations()
 
-// Test array for manual testing of median value calculations.
+// Test array for manual testing of mean value calculations.
 const testNumbersForMeanValue = [8, 4, 16, 12, 20, 24]
 // Test array for manual testing of mean value calculations with a value of 0 included.
 const secondTestNumbersForMeanValue = [4, 8, 12, 16, 20, 24, 0]
@@ -28,6 +28,24 @@ console.log(`Harmonic mean value of [${testNumbersForMeanValue}] is:`, harmonicM
 
 const secondHarmonicMeanValue = meanValueCalculator.calculateHarmonicMeanValue(secondTestNumbersForMeanValue)
 console.log(`Harmonic mean value of [${secondTestNumbersForMeanValue}] is:`, secondHarmonicMeanValue)
+
+// Test arrays for manual testing of trimmed mean value calculations.
+const testNumbersForTrimmedMeanValue = [8, 4, 16, 12, 20, 24, 50, 60, 20, 30, 12, 15, 18, 22, 25, 28, 32, 35, 38, 42]
+const secondTestNumbersForTrimmedMeanValue = [0, 0, 0, 0, 20, 24, 50, 60, 20, 30, 12, 15, 18, 22, 25, 28, 32, 35, 38, 42, 0, 0, 0, 35, 60, 0, 0, 0, 0]
+
+// Manual testing of trimmed mean value calculations with ten percent.
+const trimmedMeanValueTenPercent = meanValueCalculator.calculateTrimmedMeanValue(testNumbersForTrimmedMeanValue, 10)
+console.log(`Trimmed mean value of [${testNumbersForTrimmedMeanValue}] with 10% trimmed is:`, trimmedMeanValueTenPercent)
+
+const secondTrimmedMeanValueTenPercent = meanValueCalculator.calculateTrimmedMeanValue(secondTestNumbersForTrimmedMeanValue, 10)
+console.log(`Trimmed mean value of [${secondTestNumbersForTrimmedMeanValue}] with 10% trimmed is:`, secondTrimmedMeanValueTenPercent)
+
+// Manual testing of trimmed mean value calculations with forty percent.
+const trimmedMeanValueFortyPercent = meanValueCalculator.calculateTrimmedMeanValue(testNumbersForTrimmedMeanValue, 40)
+console.log(`Trimmed mean value of [${testNumbersForTrimmedMeanValue}] with 40% trimmed is:`, trimmedMeanValueFortyPercent)
+
+const secondTrimmedMeanValueFortyPercent = meanValueCalculator.calculateTrimmedMeanValue(secondTestNumbersForTrimmedMeanValue, 40)
+console.log(`Trimmed mean value of [${secondTestNumbersForTrimmedMeanValue}] with 40% trimmed is:`, secondTrimmedMeanValueFortyPercent)
 
 // Instance of MedianValueCalculations class, used for manual testing of median value calculations.
 const medianValueCalculator = new MedianValueCalculations()
