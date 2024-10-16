@@ -1,8 +1,6 @@
 import { checkArraysInput } from '../helperFunctions.js'
 /**
- * @class MeanValueCalculations
- *
- * This class contains private and public methods related to making mean value calculations.
+ * Class used for calculation of the mean value from an array of numbers.
  */
 export class MeanValueCalculations {
   /**
@@ -20,9 +18,13 @@ export class MeanValueCalculations {
    * Calculates the man value from an array of numbers. Uses helper function checkArraysInput for validation and the private method #sumNumbersInArray to sum all numbers in the array.
    */
   calculateMeanValue (numbers) {
-    checkArraysInput(numbers)
-    const totalSum = this.#sumNumbersInArray(numbers)
-    return totalSum / numbers.length
+    try {
+      checkArraysInput(numbers)
+      const totalSum = this.#sumNumbersInArray(numbers)
+      return totalSum / numbers.length
+    } catch (error) {
+      throw new Error('There was an error when calculating the mean value, ensure the input is an array of numbers.')
+    }
   }
 
   /**
@@ -37,12 +39,33 @@ export class MeanValueCalculations {
   }
 
   /**
-   * Calculates the geometric mean value from an array of numbers. Uses helper function checkArraysInput for validation and the private method #multiplyNumbersInArray to multiply all numbers in the array.
+   * Private method for controlling the numbers in array are positive. Used in calculateGeometricMeanValue 
+   * and calculateHarmonicMeanValue method.
+   * Throws an error if a negative / zero number is found.
+   */
+  #checkIfNumbersFromArrayArePositive (numbers) {
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] <= 0) {
+        throw new Error('All numbers in the array must be positive in order to calculate a geometric mean value.')
+      }
+    }
+  }
+
+  /**
+   * Calculates the geometric mean value from an array of numbers. Uses helper function checkArraysInput
+   * for validation and the private method #multiplyNumbersInArray to multiply all numbers in the array.
+   * It also uses the private method #checkIfNumbersFromArrayArePositive to ensure all numbers are positive.
    */
   calculateGeometricMeanValue (numbers) {
-    checkArraysInput(numbers)
-    const totalProduct = this.#multiplyNumbersInArray(numbers)
-    return Math.pow(totalProduct, 1 / numbers.length)
+    try {
+      checkArraysInput(numbers)
+      this.#checkIfNumbersFromArrayArePositive(numbers)
+
+      const totalProduct = this.#multiplyNumbersInArray(numbers)
+      return Math.pow(totalProduct, 1 / numbers.length)
+    } catch (error) {
+      throw new Error('There was an error calculating the geometric mean value. Ensure the input is an array of only positive numbers.')
+    }
   }
 
   /**
@@ -60,9 +83,15 @@ export class MeanValueCalculations {
    * Calculates the harmonic mean value from an array of numbers. Uses the helper function checkArraysInput for validation and the private method #sumReciprocalsInArray to sum all reciprocals in the array.
    */
   calculateHarmonicMeanValue (numbers) {
-    checkArraysInput(numbers)
-    const sumOfReciprocals = this.#sumReciprocalsInArray(numbers)
-    return numbers.length / sumOfReciprocals
+    try {
+      checkArraysInput(numbers)
+      this.#checkIfNumbersFromArrayArePositive(numbers)
+
+      const sumOfReciprocals = this.#sumReciprocalsInArray(numbers)
+      return numbers.length / sumOfReciprocals
+    } catch (error) {
+      throw new Error('There was an error calculating the harmonic mean value. Ensure the input is an array of only positive numbers.')
+    }
   }
 
   /**
@@ -99,12 +128,17 @@ export class MeanValueCalculations {
    * Trims a specified percentage from the smallest and largest values before calculating the mean.
    */
   calculateTrimmedMeanValue (numbers, trimPercentage) {
-    checkArraysInput(numbers)
-    const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
+    try {
+      checkArraysInput(numbers)
+      const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
 
-    const amountOfNumbersToTrim = this.#calculateAmountOfNumbersToTrim(sortedNumbersFromArray, trimPercentage)
-    const trimmedArray = this.#trimNumbersInArray(sortedNumbersFromArray, amountOfNumbersToTrim)
-    const totalSum = this.#sumNumbersInArray(trimmedArray)
-    return totalSum / trimmedArray.length
+      const amountOfNumbersToTrim = this.#calculateAmountOfNumbersToTrim(sortedNumbersFromArray, trimPercentage)
+      const trimmedArray = this.#trimNumbersInArray(sortedNumbersFromArray, amountOfNumbersToTrim)
+      const totalSum = this.#sumNumbersInArray(trimmedArray)
+
+      return totalSum / trimmedArray.length
+    } catch (error) {
+      throw new Error('There was an error calculating the trimmed mean value. Ensure the input is an array of numbers')
+    }
   }
 }
