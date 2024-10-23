@@ -7,6 +7,9 @@ import { MedianValueCalculations } from './medianValueCalculations.js'
 export class RangeValueCalculations extends InputValidator {
   /**
    * Private method used to find the lowest value in an array. Used in calculateRangeValue method.
+   *
+   * @param {number[]} numbers - The array of numbers to find the lowest value from.
+   * @returns {number} - The lowest value from the array.
    */
   #findLowestValue (numbers) {
     let lowestValue = numbers[0]
@@ -20,6 +23,9 @@ export class RangeValueCalculations extends InputValidator {
 
   /**
    * Private method used to find the highest value in an array. Used in calculateRangeValue method.
+   *
+   * @param {number[]} numbers - The array of numbers to find the highest value from.
+   * @returns {number} - The highest value from the array.
    */
   #findHighestValue (numbers) {
     let highestValue = numbers[0]
@@ -32,7 +38,10 @@ export class RangeValueCalculations extends InputValidator {
   }
 
   /**
-   * Public method that calculates the range value from an array of numbers.
+   * Public method that calculates the range value from an array of numbers. Uses the validateInput method from parent class InputValidator for validation.
+   *
+   * @param {number[]} numbers - The array of numbers to calculate the range value from.
+   * @returns {number} - The calculated range value from the array
    */
   calculateRangeValue (numbers) {
     this.validateInput(numbers)
@@ -43,6 +52,9 @@ export class RangeValueCalculations extends InputValidator {
 
   /**
    * Private method for sorting the array from smallest to largest. Used in calculateInterquartileRangeValue method.
+   *
+   * @param {number[]} numbers - The array of numbers to sort.
+   * @returns {number[]} - The sorted array of numbers.
    */
   #sortNumbersInArray (numbers) {
     return numbers.slice().sort((a, b) => a - b)
@@ -50,6 +62,9 @@ export class RangeValueCalculations extends InputValidator {
 
   /**
    * Private method for splitting the array into two halves. Used in calculateInterquartileRangeValue method.
+   *
+   * @param {number[]} numbers - The array of numbers to split in half.
+   * @returns {number[][]} - The two halves
    */
   #splitArrayInHalf (numbers) {
     const middleIndex = Math.floor(numbers.length / 2)
@@ -66,8 +81,10 @@ export class RangeValueCalculations extends InputValidator {
   /**
    * Public method used for calculating the interquartile range value from an array of numbers.
    * Interquartile range is the difference between the third quartile and the first quartile.
-   * Uses the helper function checkArraysInput for validation and the calculateMedianValue method from the
-   * MedianValueCalculations class.
+   * Uses the validateInput method from parent class InputValidator for validation and the calculateMedianValue method from the MedianValueCalculations class for calculating the different quartiles.
+   *
+   * @param {number[]} numbers - The array of numbers to calculate the interquartile range value from.
+   * @returns {number} - The calculated interquartile range value from the array.
    */
   calculateInterquartileRangeValue (numbers) {
     this.validateInput(numbers)

@@ -29,8 +29,8 @@ try {
   const geometricMeanValue = meanValueCalculator.calculateGeometricMeanValue(testNumbersForMeanValue)
   console.log(`Geometric mean value of [${testNumbersForMeanValue}] is:`, geometricMeanValue)
 
-  //const secondGeometricMeanValue = meanValueCalculator.calculateGeometricMeanValue(secondTestNumbersForMeanValue)
-  //console.log(`Geometric mean value of [${secondTestNumbersForMeanValue}] is:`, secondGeometricMeanValue)
+  // const secondGeometricMeanValue = meanValueCalculator.calculateGeometricMeanValue(secondTestNumbersForMeanValue)
+  // console.log(`Geometric mean value of [${secondTestNumbersForMeanValue}] is:`, secondGeometricMeanValue)
 
   const invalidArray = meanValueCalculator.calculateGeometricMeanValue(testArrayForAllCalculations)
   console.log(`Geometric mean value of [${testArrayForAllCalculations}] is:`, invalidArray)
@@ -43,8 +43,8 @@ try {
   const harmonicMeanValue = meanValueCalculator.calculateHarmonicMeanValue(testNumbersForMeanValue)
   console.log(`Harmonic mean value of [${testNumbersForMeanValue}] is:`, harmonicMeanValue)
 
-  //const secondHarmonicMeanValue = meanValueCalculator.calculateHarmonicMeanValue(secondTestNumbersForMeanValue)
-  //console.log(`Harmonic mean value of [${secondTestNumbersForMeanValue}] is:`, secondHarmonicMeanValue)
+  // const secondHarmonicMeanValue = meanValueCalculator.calculateHarmonicMeanValue(secondTestNumbersForMeanValue)
+  // console.log(`Harmonic mean value of [${secondTestNumbersForMeanValue}] is:`, secondHarmonicMeanValue)
 
   const invalidArray = meanValueCalculator.calculateHarmonicMeanValue(testArrayForAllCalculations)
   console.log(`Harmonic mean value of [${testArrayForAllCalculations}] is:`, invalidArray)

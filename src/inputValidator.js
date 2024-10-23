@@ -3,6 +3,12 @@
  *
  */
 export class InputValidator {
+  /**
+   * Private method used for validation of the input array.
+   * Throws an error if the input is not an array or if the array is empty or if any element in the array is wrong data type / not a number.
+   *
+   * @param {number[]} numbers - The array of numbers to validate.
+   */
   #checkArraysInput (numbers) {
     if (!Array.isArray(numbers)) {
       throw new Error('Input should be an array')
@@ -18,6 +24,11 @@ export class InputValidator {
     }
   }
 
+  /**
+   * Public method used for validation of the input array. Uses the private method #checkArraysInput for validation.
+   *
+   * @param {number[]} numbers - The array of numbers to validate.
+   */
   validateInput (numbers) {
     this.#checkArraysInput(numbers)
   }
