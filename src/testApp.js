@@ -99,6 +99,9 @@ try {
 
   const secondMedianValue = medianValueCalculator.calculateMedianValue(secondTestNumbersForMedianValue)
   console.log(`Median value of [${secondTestNumbersForMedianValue}] is:`, secondMedianValue)
+
+  const invalidArray = medianValueCalculator.calculateMedianValue(testArrayForAllCalculations)
+  console.log(`Median value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in median value calculations:', error.message)
 }
@@ -113,6 +116,9 @@ try {
 
   const secondVarianceValue = varianceValueCalculator.calculateVarianceValue(secondTestNumbersForMeanValue)
   console.log(`Variance value of [${secondTestNumbersForMeanValue}] is:`, secondVarianceValue)
+
+  const invalidArray = varianceValueCalculator.calculateVarianceValue(testArrayForAllCalculations)
+  console.log(`Variance value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in variance value calculations:', error.message)
 }
@@ -124,6 +130,9 @@ try {
 
   const secondStandardDeviationValue = varianceValueCalculator.calculateStandardDeviationValue(secondTestNumbersForMeanValue)
   console.log(`Standard deviation value of [${secondTestNumbersForMeanValue}] is:`, secondStandardDeviationValue)
+
+  const invalidArray = varianceValueCalculator.calculateStandardDeviationValue(testArrayForAllCalculations)
+  console.log(`Standard deviation value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in standard deviation value calculations:', error.message)
 }
@@ -143,6 +152,9 @@ try {
 
   const secondModeValue = modeValueCalculator.calculateModeValue(secondTestNumbersForModeValue)
   console.log(`Mode value of [${secondTestNumbersForModeValue}] is:`, secondModeValue)
+
+  const invalidArray = modeValueCalculator.calculateModeValue(testArrayForAllCalculations)
+  console.log(`Mode value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in mode value calculations:', error.message)
 }
@@ -162,6 +174,9 @@ try {
 
   const secondRangeValue = rangeValueCalculator.calculateRangeValue(secondTestNumbersForRangeValue)
   console.log(`Range value of [${secondTestNumbersForRangeValue}] is:`, secondRangeValue)
+
+  const invalidArray = rangeValueCalculator.calculateRangeValue(testArrayForAllCalculations)
+  console.log(`Range value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in range value calculations:', error.message)
 }
@@ -173,6 +188,9 @@ try {
 
   const secondInterquartileRangeValue = rangeValueCalculator.calculateInterquartileRangeValue(secondTestNumbersForRangeValue)
   console.log(`Interquartile range value of [${secondTestNumbersForRangeValue}] is:`, secondInterquartileRangeValue)
+
+  const invalidArray = rangeValueCalculator.calculateInterquartileRangeValue(testArrayForAllCalculations)
+  console.log(`Interquartile range value of [${testArrayForAllCalculations}] is:`, invalidArray)
 } catch (error) {
   console.error('Error in interquartile range value calculations:', error.message)
 }
