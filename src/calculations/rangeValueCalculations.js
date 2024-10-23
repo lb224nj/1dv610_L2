@@ -1,10 +1,10 @@
-import { checkArraysInput } from '../helperFunctions.js'
+import { InputValidator } from '../inputValidator.js'
 import { MedianValueCalculations } from './medianValueCalculations.js'
 
 /**
  * Class used for calculation of the range value from an array of numbers.
  */
-export class RangeValueCalculations {
+export class RangeValueCalculations extends InputValidator {
   /**
    * Private method used to find the lowest value in an array. Used in calculateRangeValue method.
    */
@@ -35,7 +35,7 @@ export class RangeValueCalculations {
    * Public method that calculates the range value from an array of numbers.
    */
   calculateRangeValue (numbers) {
-    checkArraysInput(numbers)
+    this.validateInput(numbers)
     const lowestValue = this.#findLowestValue(numbers)
     const highestValue = this.#findHighestValue(numbers)
     return highestValue - lowestValue
@@ -70,7 +70,7 @@ export class RangeValueCalculations {
    * MedianValueCalculations class.
    */
   calculateInterquartileRangeValue (numbers) {
-    checkArraysInput(numbers)
+    this.validateInput(numbers)
     const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
 
     const [lowerHalf, higherHalf] = this.#splitArrayInHalf(sortedNumbersFromArray)

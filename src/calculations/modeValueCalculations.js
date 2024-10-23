@@ -1,9 +1,9 @@
-import { checkArraysInput } from '../helperFunctions.js'
+import { InputValidator } from '../inputValidator.js'
 
 /**
  * Class used for calculation of the mode value from an array of numbers.
  */
-export class ModeValueCalculations {
+export class ModeValueCalculations extends InputValidator{
   /**
    * Private method that counts the frequency of each number in an array. Used in calculateModeValue method.
    */
@@ -45,7 +45,7 @@ export class ModeValueCalculations {
    * Method that calculates the mode value from an array of numbers.
    */
   calculateModeValue (numbers) {
-    checkArraysInput(numbers)
+    this.validateInput(numbers)
 
     const frequencyOfNumbers = this.#calculateFrequencyOfNumbers(numbers)
 

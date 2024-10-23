@@ -1,15 +1,16 @@
 import { MeanValueCalculations } from './meanValueCalculations.js'
-import { checkArraysInput } from '../helperFunctions.js'
+import { InputValidator } from '../inputValidator.js'
 
 /**
  * Class used for calculation of the variance value from an array of numbers.
  */
-export class VarianceValueCalculations {
+export class VarianceValueCalculations extends InputValidator {
 /**
  * Constructs an instance of the VarianceValueCalculations class where MeanValueCalculations class is reused via
  * composition.
  */
   constructor () {
+    super()
     this.meanValueCalculator = new MeanValueCalculations()
   }
 
@@ -33,7 +34,7 @@ export class VarianceValueCalculations {
    * to get the mean value of the array.
    */
   calculateVarianceValue (numbers) {
-    checkArraysInput(numbers)
+    this.validateInput(numbers)
     // Uses calculateMeanValue method from MeanValueCalculations class
     const meanValue = this.meanValueCalculator.calculateMeanValue(numbers)
     return this.#calculateTotalSquaredDifference(numbers, meanValue)
