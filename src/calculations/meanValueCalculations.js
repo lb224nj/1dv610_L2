@@ -18,13 +18,9 @@ export class MeanValueCalculations {
    * Calculates the man value from an array of numbers. Uses helper function checkArraysInput for validation and the private method #sumNumbersInArray to sum all numbers in the array.
    */
   calculateMeanValue (numbers) {
-    try {
       checkArraysInput(numbers)
       const totalSum = this.#sumNumbersInArray(numbers)
       return totalSum / numbers.length
-    } catch (error) {
-      throw new Error('There was an error when calculating the mean value, ensure the input is an array of numbers.')
-    }
   }
 
   /**
@@ -46,7 +42,7 @@ export class MeanValueCalculations {
   #checkIfNumbersFromArrayArePositive (numbers) {
     for (let i = 0; i < numbers.length; i++) {
       if (numbers[i] <= 0) {
-        throw new Error('All numbers in the array must be positive in order to calculate a geometric mean value.')
+        throw new Error('All numbers in the array must be positive in order to calculate a geometric / harmonic mean value.')
       }
     }
   }
@@ -57,15 +53,11 @@ export class MeanValueCalculations {
    * It also uses the private method #checkIfNumbersFromArrayArePositive to ensure all numbers are positive.
    */
   calculateGeometricMeanValue (numbers) {
-    try {
-      checkArraysInput(numbers)
-      this.#checkIfNumbersFromArrayArePositive(numbers)
+    checkArraysInput(numbers)
+    this.#checkIfNumbersFromArrayArePositive(numbers)
 
-      const totalProduct = this.#multiplyNumbersInArray(numbers)
-      return Math.pow(totalProduct, 1 / numbers.length)
-    } catch (error) {
-      throw new Error('There was an error calculating the geometric mean value. Ensure the input is an array of only positive numbers.')
-    }
+    const totalProduct = this.#multiplyNumbersInArray(numbers)
+    return Math.pow(totalProduct, 1 / numbers.length)
   }
 
   /**
@@ -83,15 +75,11 @@ export class MeanValueCalculations {
    * Calculates the harmonic mean value from an array of numbers. Uses the helper function checkArraysInput for validation and the private method #sumReciprocalsInArray to sum all reciprocals in the array.
    */
   calculateHarmonicMeanValue (numbers) {
-    try {
-      checkArraysInput(numbers)
-      this.#checkIfNumbersFromArrayArePositive(numbers)
+    checkArraysInput(numbers)
+    this.#checkIfNumbersFromArrayArePositive(numbers)
 
-      const sumOfReciprocals = this.#sumReciprocalsInArray(numbers)
-      return numbers.length / sumOfReciprocals
-    } catch (error) {
-      throw new Error('There was an error calculating the harmonic mean value. Ensure the input is an array of only positive numbers.')
-    }
+    const sumOfReciprocals = this.#sumReciprocalsInArray(numbers)
+    return numbers.length / sumOfReciprocals
   }
 
   /**
@@ -128,17 +116,13 @@ export class MeanValueCalculations {
    * Trims a specified percentage from the smallest and largest values before calculating the mean.
    */
   calculateTrimmedMeanValue (numbers, trimPercentage) {
-    try {
-      checkArraysInput(numbers)
-      const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
+    checkArraysInput(numbers)
+    const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
 
-      const amountOfNumbersToTrim = this.#calculateAmountOfNumbersToTrim(sortedNumbersFromArray, trimPercentage)
-      const trimmedArray = this.#trimNumbersInArray(sortedNumbersFromArray, amountOfNumbersToTrim)
-      const totalSum = this.#sumNumbersInArray(trimmedArray)
+    const amountOfNumbersToTrim = this.#calculateAmountOfNumbersToTrim(sortedNumbersFromArray, trimPercentage)
+    const trimmedArray = this.#trimNumbersInArray(sortedNumbersFromArray, amountOfNumbersToTrim)
+    const totalSum = this.#sumNumbersInArray(trimmedArray)
 
-      return totalSum / trimmedArray.length
-    } catch (error) {
-      throw new Error('There was an error calculating the trimmed mean value. Ensure the input is an array of numbers')
-    }
+    return totalSum / trimmedArray.length
   }
 }

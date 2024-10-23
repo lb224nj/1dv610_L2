@@ -30,8 +30,12 @@ export class MedianValueCalculations {
    * Uses the helper function checkArraysInput for validation of the aray being used.
    */
   calculateMedianValue (numbers) {
-    checkArraysInput(numbers)
-    const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
-    return this.#extractMedianValueFromSortedArray(sortedNumbersFromArray)
+    try {
+      checkArraysInput(numbers)
+      const sortedNumbersFromArray = this.#sortNumbersInArray(numbers)
+      return this.#extractMedianValueFromSortedArray(sortedNumbersFromArray)
+    } catch (error) {
+      throw new Error('There was an error calculating the median value. Ensure the input is an array of numbers.')
+    }
   }
 }

@@ -9,4 +9,10 @@ export function checkArraysInput (numbers) {
   if (numbers.length === 0) {
     throw new Error('The input must contain one number at a minimum')
   }
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] !== 'number' || isNaN(numbers[i])) {
+      throw new Error('All elements in the array must be numbers')
+    }
+  }
 }
