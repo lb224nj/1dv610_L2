@@ -194,3 +194,66 @@ try {
 } catch (error) {
   console.error('Error in interquartile range value calculations:', error.message)
 }
+
+// Manual testing of validation of input arrays.
+try {
+  const notAnArray = 'notAnArray'
+  meanValueCalculator.calculateMeanValue(notAnArray)
+} catch (error) {
+  console.error('Error in manual testing of validation of input arrays (notAnArray):', error.message)
+}
+
+try {
+  const emptyArray = []
+  meanValueCalculator.calculateMeanValue(emptyArray)
+} catch (error) {
+  console.error('Error in manual testing of validation of input arrays (emptyArray):', error.message)
+}
+
+try {
+  const invalidArrayContainingBoolean = [true, 4, 8, 16]
+  meanValueCalculator.calculateMeanValue(invalidArrayContainingBoolean)
+} catch (error) {
+  console.error('Error in manual testing of validation of input arrays (invalidArrayContainingBoolean):', error.message)
+}
+
+// Manual testing of trimmed mean value calculations with few values / unusual trim percentage.
+
+// Test arrays for manual testing of trimmed mean value calculations edge cases.
+const testNumbersForTrimmedMeanValueWithFewNumbers = [8, 4, 16, 12, 20]
+const thirdTestNumbersForTrimmedMeanValue = [0, 0, 0, 0, 20, 24, 50, 60, 20, 30, 12, 15, 18, 22, 25, 28, 32, 35, 38, 42, 0, 0, 0, 35, 60, 0, 0, 0, 0]
+
+// Manual testing of trimmed mean value calculations with 90 percent.
+try {
+  const trimmedMeanValueNinetyPercent = meanValueCalculator.calculateTrimmedMeanValue(testNumbersForTrimmedMeanValueWithFewNumbers, 90)
+  console.log(`Trimmed mean value of [${testNumbersForTrimmedMeanValueWithFewNumbers}] with 90% trimmed is:`, trimmedMeanValueNinetyPercent)
+
+  const secondTrimmedMeanValueNinetyPercent = meanValueCalculator.calculateTrimmedMeanValue(thirdTestNumbersForTrimmedMeanValue, 90)
+  console.log(`Trimmed mean value of [${thirdTestNumbersForTrimmedMeanValue}] with 90% trimmed is:`, secondTrimmedMeanValueNinetyPercent)
+} catch (error) {
+  console.error('Error in trimmed mean value calculations with few values / trim percentage:', error.message)
+}
+
+// Manual testing of trimmed mean value calculations with 70 percent.
+
+try {
+  const trimmedMeanValueSeventyPercent = meanValueCalculator.calculateTrimmedMeanValue(testNumbersForTrimmedMeanValueWithFewNumbers, 70)
+  console.log(`Trimmed mean value of [${testNumbersForTrimmedMeanValueWithFewNumbers}] with 70% trimmed is:`, trimmedMeanValueSeventyPercent)
+
+  const secondTrimmedMeanValueSeventyPercent = meanValueCalculator.calculateTrimmedMeanValue(thirdTestNumbersForTrimmedMeanValue, 70)
+  console.log(`Trimmed mean value of [${thirdTestNumbersForTrimmedMeanValue}] with 70% trimmed is:`, secondTrimmedMeanValueSeventyPercent)
+} catch (error) {
+  console.error('Error in trimmed mean value calculations with few values / trim percentage:', error.message)
+}
+
+// Manual testing of trimmed mean value calculations with 4 percent.
+
+try {
+  const trimmedMeanValueFourPercent = meanValueCalculator.calculateTrimmedMeanValue(testNumbersForTrimmedMeanValueWithFewNumbers, 4)
+  console.log(`Trimmed mean value of [${testNumbersForTrimmedMeanValueWithFewNumbers}] with 4% trimmed is:`, trimmedMeanValueFourPercent)
+
+  const secondTrimmedMeanValueFourPercent = meanValueCalculator.calculateTrimmedMeanValue(thirdTestNumbersForTrimmedMeanValue, 4)
+  console.log(`Trimmed mean value of [${thirdTestNumbersForTrimmedMeanValue}] with 4% trimmed is:`, secondTrimmedMeanValueFourPercent)
+} catch (error) {
+  console.error('Error in trimmed mean value calculations with few values / trim percentage:', error.message)
+}
