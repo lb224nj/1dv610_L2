@@ -26,9 +26,9 @@ Ytterligare ett område i kapitlet som jag kan ha mindre invändningar emot är 
 
 | Metodnamn och länk eller kod | Antal rader         | Reflektion |
 |------------------------------|---------------------|------------|
-|                              |                     |            |
-|                              |                     |            |
-|                              |                     |            |
-|                              |                     |            |
-|                              |                     |            |
+|1. Metodnamn: #extractModeValueFromFrequency (frequencyOfNumbers) <br>länk: https://github.com/lb224nj/1dv610_L2/blob/main/src/calculations/modeValueCalculations.js#L34                            | 14                    | **Do One Thing**<br> Metoden följer inte principen om att endast göra en sak. För att följa den principen kunde jag delat upp metoden i tre separata metoder. Jag kunde brytit ut logiken kring initiering av modeValue och highestFrequency räknaren till en separat metod. Vidare kunde jag gjort samma sak gällande uppdateringen av modeValue och highestFrequency som för närvarande sker i loopen i #extractModeValueFromFrequency.<br>**Have No Side Effects**<br>Denna princip följer metoden bättre. Logiken sker efter inmatad data (frequencyOfNumbers skapad i #calculateFrequencyOfNumbers) och returnerar ett resultat /värde (modeValue) utan att metoden påverkar globala variabler eller något annat utanför metodens scope.         |
+|2. Metodnamn: #checkArraysInput (numbers) <br>länk: https://github.com/lb224nj/1dv610_L2/blob/main/src/inputValidator.js#L12                         |  13                   | **Do One Thing**<br> Återigen går det att diskutera logiken kring om metoden bör delas upp i mindre beståndsdelar. Jag skulle argumentera för att metoden gör en sak (kontrollerar input i en array) fast genom olika typer av kontroller. Även om det skulle gå att bryta upp den i tre delar där en metod kontrollerar att det är en array, en andra kontrollerar att arrayen inte är tom och en tredje att arrayen endast innehåller nummer, så anser jag att alla tre operationer samlade i en metod skapar hög cohesion och att metoden ur ett högre perspektiv gör en enskild grundläggande sak - nämligen kontrollerar input.<br>**Error Handling Is One Thing**<br> Denna princip ser jag som relevant för metoden eftersom den dedikerad för just felhantering genom valideringen. Alltså är det positivt att den hanterar erros och inget annat.          |
+|3. Metodnamn: #calculateFrequencyOfNumbers (numbers) <br>länk: https://github.com/lb224nj/1dv610_L2/blob/main/src/calculations/modeValueCalculations.js#L13                          | 12                    |            |
+|4.                            |                     |            |
+|5.                            |                     |            |
 
