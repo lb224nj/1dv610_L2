@@ -8,7 +8,7 @@ git clone https://github.com/lb224nj/1dv610_L2.git your-folder
 cd your-folder
 
 ````
-If you want to contribute to the project or run the same environment as it was devloped in regarding code linting and such you can install the dev dependencies like:
+If you want to contribute to the project or run the same environment as it was devloped in (regarding code linting and such) you can install the dev dependencies like:
 ````
 npm install
 ````
